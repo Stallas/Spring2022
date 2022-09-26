@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.learning.springDemo</groupId>
+	<artifactId>Spring-CRM-Rest-Demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>Spring-CRM-Rest-Application</name>
+	<description>Real time application</description>
+
+	<properties>
+		<org.springframework-version>5.0.6.RELEASE</org.springframework-version>
+		<org.aspectj-version>1.7.4</org.aspectj-version>
+		<hibernate.version>5.2.16.Final</hibernate.version>
+		<mysql.connector.version>5.1.45</mysql.connector.version>
+		<c3po.version>0.9.5.2</c3po.version>
+		<org.slf4j-version>1.7.5</org.slf4j-version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+	</properties>
+
+	<dependencies>
+		<!-- Spring -->
+		<dependency><!-- Spring REST-->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>5.3.23</version>
+		</dependency>
+		<dependency><!-- Using Hibernate processing our Data Request-->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>5.3.23</version>
+		</dependency>
+		<dependency><!-- Supporting classes for Hibernate-->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>5.3.23</version>
+		</dependency>
+		<!-- Add Jackson for JSON  convertions -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.13.4</version>
+		</dependency>
+		<!-- Hibernate-->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.6.Final</version>
+		</dependency>
+		<!-- MySQl-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.30</version>
+		</dependency>
+		<!-- C3PO - Connection pooling framework for managing database connections-->
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.5.5</version>
+		</dependency>
+
+		<!-- Add Servlet support for Spring's AbstractAnnotationConfigDispatcherServletInitializer' -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Add support for JSP -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- To compensate for java 9+ not including jaxb-->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<!-- FinalName is WAR file name-->
+		<finalName>Spring-crm-rest</finalName>
+		<plugins>
+			<!-- Builds a Web application (WAR) file from the project and its dependencies-->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>18</release>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- Add Maven coordinate (GAV) for : maven-war-plugin-->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.3</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>
